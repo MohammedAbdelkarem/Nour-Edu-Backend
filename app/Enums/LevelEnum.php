@@ -12,7 +12,6 @@ use BenSampo\Enum\Contracts\LocalizedEnum;
  */
 final class LevelEnum extends Enum implements LocalizedEnum
 {
-    
     const STORY                  = 'Story';
     const BANNER                 = 'Banner';
     const USER                   = 'User';
