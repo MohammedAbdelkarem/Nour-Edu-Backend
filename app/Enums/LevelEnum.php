@@ -10,6 +10,7 @@ use BenSampo\Enum\Contracts\LocalizedEnum;
  * @method static static OptionTwo()
  * @method static static OptionThree()
  */
+
 final class LevelEnum extends Enum implements LocalizedEnum
 {
     const STORY                  = 'Story';
