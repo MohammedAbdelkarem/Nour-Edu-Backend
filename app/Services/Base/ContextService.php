@@ -5,6 +5,7 @@ namespace App\Services\Base;
 use App\Models\Quiz;
 use App\Models\Unit;
 use App\Models\CLevel;
+use App\Models\Contry;
 use App\Models\Coupon;
 use App\Models\Course;
 use App\Models\ELevel;
@@ -24,6 +25,11 @@ use App\Constants\ExceptionMessages;
  */
 class ContextService
 {
+    public function getCoutnryIdByElevelId($e_level_id)
+    {
+        $eLevel = ELevel::findByIdOrFail($e_level_id);
+        return $eLevel->contry_id ?? null;
+    }
     public function disableExpiredCopons()
     {
         Coupon::
@@ -419,6 +425,8 @@ class ContextService
         $context = $model::findByIdOrFail($context_id);
         $hasContent = true;
 
+        if($model == Contry::class)
+            $hasContent = $context->eLevels()->count() > 0;
         if($model == ELevel::class)
             $hasContent = $context->cLevels()->count() > 0;
         else if($model == CLevel::class)

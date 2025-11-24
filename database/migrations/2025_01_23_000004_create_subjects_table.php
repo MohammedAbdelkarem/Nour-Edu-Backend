@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('contry_id')->nullable()->constrained('contries')->onDelete('cascade');
             $table->foreignId('e_level_id')->constrained('e_levels')->onDelete('cascade');
             $table->foreignId('c_level_id')->constrained('c_levels')->onDelete('cascade');
             $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');

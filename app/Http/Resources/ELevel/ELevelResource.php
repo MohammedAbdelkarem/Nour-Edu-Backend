@@ -25,6 +25,7 @@ class ELevelResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'bio' => $this->bio,
+            'contry_id' => $this->contry_id,
             'number_of_published_contents' => $this->childsPublishedCounts(),
             'media' => MediaResource::make($this->getFirstMedia(MediaCollection::E_LEVEL_COLLECTION)),
             'teachers' => $this->relationLoaded('responsibilities') 

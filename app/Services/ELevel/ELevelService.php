@@ -16,18 +16,39 @@ class ELevelService
 
     public function getAll($data)
     {
-        return getOrPaginate(
-            ELevel::orderBy('created_at', 'desc' , 'responsibilities')
-                    ->with(['cLevels' , 'responsibilities.teacher']),
-            $data
-        );
+        $query = ELevel::orderBy('created_at', 'desc' , 'responsibilities')
+        ->with(['cLevels' , 'responsibilities.teacher']);
+
+        if (isset($data['contry_id'])) {
+            $query->where('contry_id', $data['contry_id']);
+        }
+        else if(isset($data['shared_content'])) {
+            $query->sharedElevels();
+        }
+
+        return getOrPaginate($query, $data);
     }
 
-    public function getList()
+    public function getList($contry_id = null)
     {
-        return ELevel::published()->get();
+        $query = ELevel::published();
+
+        if($contry_id) 
+        {
+            $query->where('contry_id', $contry_id);
+        }
+        else
+        {
+            $query->sharedElevels();
+        }
+
+        return $query->get();
     }
 
+    public function getListShared()
+    {
+        return ELevel::published()->sharedElevels()->get();
+    }
     public function show($id)
     {
         return ELevel::findByIdOrFail($id, ['cLevels' , 'responsibilities']);

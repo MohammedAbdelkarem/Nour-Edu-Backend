@@ -16,10 +16,10 @@ class CityController extends Controller
         protected CityService $cityService
     ) {}
 
-    public function index(Request $request): JsonResponse
+    public function index(Request $request , $country_id = null): JsonResponse
     {
         return success(
-            $this->cityService->index($request->per_page, $request->search),
+            $this->cityService->index($request->per_page, $request->search, $country_id),
             ApiMessages::MSG_SUCCESS,
             CityResource::class,
             $request->per_page > 0

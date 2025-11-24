@@ -43,6 +43,8 @@ class CLevelService
             uploadFileOnMedia($data['image'], $cLevel, MediaCollection::C_LEVEL_COLLECTION);
         }
 
+        $cLevel->contry_id = $this->contextService->getCoutnryIdByElevelId($data['e_level_id']);
+
         $cLevel->save();
 
         // Update parent ELevel numbers

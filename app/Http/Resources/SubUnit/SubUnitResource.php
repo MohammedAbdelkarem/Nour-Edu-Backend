@@ -35,6 +35,7 @@ class SubUnitResource extends JsonResource
             'unit_id' => $this->unit_id,
             'name' => $this->name,
             'bio' => $this->bio,
+            'contry_id' => $this->contry_id,
             'priority' => $this->priority,
             'number_of_published_contents' => $this->childsPublishedCounts(),
             'number_of_published_quizzes' => $this->publishedQuizzesCounts(),

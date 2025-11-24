@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('c_levels', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('contry_id')->nullable()->constrained('contries')->onDelete('cascade');
             $table->foreignId('e_level_id')->constrained('e_levels')->onDelete('cascade');
             $table->string('name');
             $table->text('bio')->nullable();

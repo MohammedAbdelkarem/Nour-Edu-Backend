@@ -16,6 +16,7 @@ final class LevelEnum extends Enum implements LocalizedEnum
     const STORY                  = 'Story';
     const BANNER                 = 'Banner';
     const USER                   = 'User';
+    const CONTRY                = 'Contry';
     const E_LEVEL                = 'E_Level';
     const C_LEVEL                = 'C_Level';
     const COURSE                 = 'Course';

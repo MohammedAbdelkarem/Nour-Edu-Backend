@@ -60,6 +60,8 @@ class SubjectService
             uploadFileOnMedia($data['video'], $subject, MediaCollection::SUBJECT_VIDEO_COLLECTION);
         }
 
+        $subject->contry_id = $this->contextService->getCoutnryIdByElevelId($data['e_level_id']);
+
         $subject->save();
 
         // Update parent Course numbers

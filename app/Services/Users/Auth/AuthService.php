@@ -61,6 +61,7 @@ class AuthService extends MainService
             'role_id' => 5,
             'language' => config("app.locale"),
             'parent_id' => $parent->id, //link the student to the parent
+            'contry_id' => $validatedData['contry_id'],
             'e_level_id' => $validatedData['e_level_id'],
             'c_level_id' => $validatedData['c_level_id'],
             'name' => $validatedData['name'],

@@ -3,6 +3,8 @@
 return [
     'admin'                     => 'مسؤول النظام',
     'admins'                    => 'مسؤولي النظام',
+    'contry'                    => 'الدولة',
+    'countries'                 => 'الدول',
     'Stories'                   => 'قصص',
     'Question'                  => 'سؤال',
     'Banner'                    => 'بانر',

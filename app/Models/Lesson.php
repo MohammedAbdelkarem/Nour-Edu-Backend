@@ -57,6 +57,11 @@ class Lesson extends Model implements HasMedia
     }
 
     // Relationships
+    public function contry(): BelongsTo
+    {
+        return $this->belongsTo(Contry::class, 'contry_id');
+    }
+
     public function eLevel(): BelongsTo
     {
         return $this->belongsTo(ELevel::class, 'e_level_id');

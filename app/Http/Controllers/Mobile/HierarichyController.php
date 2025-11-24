@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Services\CLevel\CLevelService;
 use App\Services\ELevel\ELevelService;
 use App\Services\Lesson\LessonService;
+use App\Services\Country\CountryService;
 use App\Http\Resources\List\ListResource;
 use App\Http\Resources\SellPointResource;
 use App\Http\Resources\Unit\UnitResource;
@@ -34,12 +35,18 @@ class HierarichyController extends Controller
         protected TeacherService $teacherService,
         protected ELevelService $eLevelService,
         protected CLevelService $cLevelService,
+        protected CountryService $countryService,
         protected SellPointService $sellPointService,
     ) {}
 
-    public function e_levels()
+    public function countries()
     {
-        return success($this->eLevelService->getList(), ApiMessages::MSG_SUCCESS);
+        return success($this->countryService->getList(), ApiMessages::MSG_SUCCESS);
+    }
+
+    public function e_levels($contry_id = null)
+    {
+        return success($this->eLevelService->getList($contry_id), ApiMessages::MSG_SUCCESS);
     }
 
     public function c_levels($e_level_id)

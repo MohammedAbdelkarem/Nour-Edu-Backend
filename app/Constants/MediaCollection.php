@@ -29,4 +29,5 @@ final class MediaCollection
     const APP_VERSION_COLLECTION            = 'app_version_collection';
     const COURSE_ICON_COLLECTION            = 'course_icon_collection';
     const SUBJECT_ICON_COLLECTION           = 'subject_icon_collection';
+    const CONTRY_FLAG_COLLECTION             = 'contry_flag_collection';
 }

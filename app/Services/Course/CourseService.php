@@ -49,6 +49,8 @@ class CourseService
             uploadFileOnMedia($data['icon'], $course, MediaCollection::COURSE_ICON_COLLECTION);
         }
 
+        $course->contry_id = $this->contextService->getCoutnryIdByElevelId($data['e_level_id']);
+
         $course->save();
 
         // Update parent CLevel numbers

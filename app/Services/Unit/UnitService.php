@@ -57,6 +57,8 @@ class UnitService
             uploadFileOnMedia($data['image'], $unit, MediaCollection::UNIT_COLLECTION);
         }
 
+        $unit->contry_id = $this->contextService->getCoutnryIdByElevelId($data['e_level_id']);
+
         $unit->save();
 
         // Update parent Subject numbers

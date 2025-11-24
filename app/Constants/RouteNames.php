@@ -32,6 +32,7 @@ final class RouteNames
     const GET_SUBCATEGORIES              = 'get.subcategories';
     const GET_CATEGORIES              = 'get.categories';
     const STUDENT_HOME                 = 'student.home';
+    const ADMIN_COUNTRIES_LIST         = 'admin.countries.list';
     const ADMIN_E_LEVEL_LIST           = 'admin.e-level.list';
     const ADMIN_C_LEVEL_LIST           = 'admin.c-level.list';
     const ADMIN_COURSE_LIST            = 'admin.course.list';

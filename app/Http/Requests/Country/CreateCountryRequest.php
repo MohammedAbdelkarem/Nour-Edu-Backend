@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Requests\ELevel;
+namespace App\Http\Requests\Country;
 
-use App\Enums\PublishStatusEnum;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\BaseApiRequest;
-use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateELevelRequest extends BaseApiRequest
+class CreateCountryRequest extends BaseApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +23,8 @@ class UpdateELevelRequest extends BaseApiRequest
     public function rules(): array
     {
         return [
-            'name' => ['sometimes', 'unique:e_levels,name,' . $this->id, 'string', 'min:2', 'max:255'],
-            'bio' => ['sometimes' , 'string'],
-            'contry_id' => ['nullable', 'exists:contries,id'],
-            // 'publish_status' => ['sometimes', Rule::in(PublishStatusEnum::values())],
+            'name' => ['required', 'string', 'min:2', 'max:255' , Rule::unique('contries', 'name')],
+            'country_code' => ['required', 'string', 'min:2', 'max:255' , Rule::unique('contries', 'country_code')],
         ];
     }
 }

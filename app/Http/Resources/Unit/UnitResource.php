@@ -36,6 +36,7 @@ class UnitResource extends JsonResource
             'subject_id' => $this->subject_id,
             'name' => $this->name,
             'bio' => $this->bio,
+            'contry_id' => $this->contry_id,
             'priority' => $this->priority,
             'number_of_published_contents' => $this->childsPublishedCounts(),
             'price' => $this->price,

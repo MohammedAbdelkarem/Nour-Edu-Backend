@@ -73,6 +73,8 @@ class LessonService
             uploadFilesOnMedia($data['videos'], $lesson, MediaCollection::LESSON_VIDEO_COLLECTION);
         }
 
+        $lesson->contry_id = $this->contextService->getCoutnryIdByElevelId($data['e_level_id']);
+
         $lesson->save();
 
         // Update parent SubUnit numbers

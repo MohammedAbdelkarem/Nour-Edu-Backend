@@ -25,7 +25,7 @@ class CreateELevelRequest extends BaseApiRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'unique:e_levels,name', 'string', 'min:2', 'max:255'],
+            'name' => ['required', Rule::unique('e_levels', 'name')->where('contry_id', request('contry_id')), 'string', 'min:2', 'max:255'],
             'bio' => ['sometimes', 'string'],
             // 'publish_status' => ['sometimes', Rule::in(PublishStatusEnum::values())],
             'image' => [
@@ -33,6 +33,7 @@ class CreateELevelRequest extends BaseApiRequest
                 'mimes:svg,png,jpg,jpeg,webp',
                 'max:4096'
             ],
+            'contry_id' => ['nullable', 'exists:contries,id'],
         ];
     }
 }

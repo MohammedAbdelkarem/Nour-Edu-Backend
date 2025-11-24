@@ -4,7 +4,8 @@ namespace App\Constants;
 
 final class Resources
 {
-
+    const CONTRY                    = 'resources.contry';
+    const COUNTRIES                 = 'resources.countries';
     const RES_ADMIN                 = 'resources.admin';
     const RES_ADMINS                = 'resources.admins';
     const RES_STORY                 = 'resources.Story';

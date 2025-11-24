@@ -15,12 +15,16 @@ use Illuminate\Support\Facades\DB;
  */
 class CityService extends MainService
 {
-    public function index($per_page, $search = null)
+    public function index($per_page, $search = null , $country_id = null)
     {
         $cities = City::query()
             ->when($search, function (Builder $query) use ($search) {
                 $query->where('name', 'like', strtolower($search) . '%');
-            });
+            })
+            ->when($country_id, function (Builder $query) use ($country_id) {
+                $query->where('contry_id', $country_id);
+            })
+            ->with('country');
         return $per_page > 0 ? $cities->paginate($per_page) : $cities->get();
     }
 
@@ -28,18 +32,20 @@ class CityService extends MainService
     {
         City::create([
             "name" => $validatedData["name"],
+            "country_id" => $validatedData["country_id"],
         ]);
     }
 
     public function show($id)
     {
-        return findByIdOrFail(City::class, $id, Resources::CITY, 'female');
+        return findByIdOrFail(City::class, $id, Resources::CITY, 'female', ['contry']);
     }
 
     public function update($validatedData, $id)
     {
         $city = findByIdOrFail(City::class, $id, Resources::CITY, 'female');
         $city->name = $validatedData["name"];
+        $city->country_id = $validatedData["country_id"];
         $city->save();
     }
 

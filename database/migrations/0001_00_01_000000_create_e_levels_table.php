@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('e_levels', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('contry_id')->nullable()->constrained('contries')->onDelete('cascade');
             $table->string('name');
             $table->text('bio')->nullable();
             $table->enum('publish_status', PublishStatusEnum::values())->default(PublishStatusEnum::DRAFT->value);

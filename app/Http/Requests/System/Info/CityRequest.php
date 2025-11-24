@@ -29,6 +29,10 @@ class CityRequest extends BaseApiRequest
                 'between:2,255',
                 'unique:cities,name'
             ],
+            "country_id" => [
+                "required",
+                "exists:contries,id"
+            ],
         ];
     }
 
@@ -40,6 +44,10 @@ class CityRequest extends BaseApiRequest
                 "string",
                 'between:2,255',
                 Rule::unique('cities', 'name')->ignore(request()->id)
+            ],
+            "country_id" => [
+                "required",
+                "exists:contries,id"
             ],
         ];
     }

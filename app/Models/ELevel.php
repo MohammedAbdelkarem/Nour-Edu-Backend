@@ -12,6 +12,7 @@ use App\Constants\MediaCollection;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ELevel extends Model implements HasMedia
@@ -52,6 +53,11 @@ class ELevel extends Model implements HasMedia
     }
 
     // Relationships
+    public function contry(): BelongsTo
+    {
+        return $this->belongsTo(Contry::class, 'contry_id');
+    }
+
     public function cLevels(): HasMany
     {
         return $this->hasMany(CLevel::class, 'e_level_id');
@@ -126,5 +132,10 @@ class ELevel extends Model implements HasMedia
     public function childsPublishedCounts()
     {
         return $this->publishedCLevels()->count();
+    }
+
+    public function scopeSharedElevels($query)
+    {
+        return $query->whereNull('contry_id');
     }
 }

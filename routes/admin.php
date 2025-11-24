@@ -24,6 +24,7 @@ use App\Http\Controllers\Administration\CLevel\CLevelController;
 use App\Http\Controllers\Administration\Course\CourseController;
 use App\Http\Controllers\Administration\ELevel\ELevelController;
 use App\Http\Controllers\Administration\Lesson\LessonController;
+use App\Http\Controllers\Administration\Country\CountryController;
 use App\Http\Controllers\Administration\Subject\SubjectController;
 use App\Http\Controllers\Administration\SubUnit\SubUnitController;
 use App\Http\Controllers\Administration\Teacher\TeacherController;
@@ -149,13 +150,19 @@ Route::group(['middleware' => ['auth:api', "is_admin", 'token.access_api', 'user
             Route::delete("/{id}", "destroy");
         });
         Route::prefix("cities")->controller(CityController::class)->group(function () {
-            Route::get("/", "index")->name(RouteNames::ADMIN_CITIES_SELECTABLE_LIST);
-            Route::get("/{id}", "show");
+            Route::get("/{country_id?}", "index")->name(RouteNames::ADMIN_CITIES_SELECTABLE_LIST);
+            Route::get("/{id}/show", "show");
         });
         Route::apiResource('/settings', SystemSettingController::class);
     });
 
     //e-learning
+    Route::prefix("countries")->controller(CountryController::class)->group(function () {
+        Route::get("/", "index")->name(RouteNames::ADMIN_COUNTRIES_LIST);
+        Route::post("/", "store");
+        Route::put("/{id}", "update");
+        Route::delete("/{id}", "destroy");
+    });
     Route::prefix("e-levels")->controller(ELevelController::class)->group(function () {
         Route::get("/", "index")->name(RouteNames::ADMIN_E_LEVEL_LIST);
         Route::post("/", "store");

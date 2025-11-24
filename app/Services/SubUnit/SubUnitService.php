@@ -62,6 +62,8 @@ class SubUnitService
             uploadFileOnMedia($data['image'], $subUnit, MediaCollection::SUB_UNIT_COLLECTION);
         }
 
+        $subUnit->contry_id = $this->contextService->getCoutnryIdByElevelId($data['e_level_id']);
+
         $subUnit->save();
 
         // Update parent Unit numbers

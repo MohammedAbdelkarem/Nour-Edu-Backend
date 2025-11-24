@@ -26,6 +26,7 @@ class CLevelResource extends JsonResource
             'e_level_id' => $this->e_level_id,
             'name' => $this->name,
             'bio' => $this->bio,
+            'contry_id' => $this->contry_id,
             'number_of_published_contents' => $this->childsPublishedCounts(),
             'media' => MediaResource::make($this->getFirstMedia(MediaCollection::C_LEVEL_COLLECTION)),
             'teachers' => $this->relationLoaded('responsibilities') 

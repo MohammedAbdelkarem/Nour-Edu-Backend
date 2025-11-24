@@ -3,6 +3,8 @@
 return [
     'admin'                     => 'Admin',
     'admins'                    => 'Admins',
+    'contry'                    => 'Contry',
+    'countries'                 => 'Countries',
     'Notification'              => 'Notification',
     'notification'              => 'Notification',
     'Notifications'             => 'Notifications',

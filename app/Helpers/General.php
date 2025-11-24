@@ -8,6 +8,7 @@ use App\Models\Story;
 use App\Models\Answer;
 use App\Models\Banner;
 use App\Models\CLevel;
+use App\Models\Contry;
 use App\Models\Course;
 use App\Models\ELevel;
 use App\Models\Lesson;
@@ -17,6 +18,7 @@ use App\Models\Subject;
 use App\Models\SubUnit;
 use Nette\Utils\Random;
 use App\Enums\LevelEnum;
+use App\Models\Download;
 use App\Models\Question;
 use App\Models\LessonRate;
 use App\Models\QuizResult;
@@ -26,7 +28,6 @@ use App\Enums\QuizResultEnum;
 use App\Models\UnlockedContext;
 use App\Enums\CommentStatusEnum;
 use App\Constants\MediaCollection;
-use App\Models\Download;
 use Illuminate\Support\Facades\Config;
 use App\Services\System\SystemSettingService;
 
@@ -190,6 +191,7 @@ if (!function_exists('mediaCollectionByContxt')) {
             LevelEnum::STORY          => MediaCollection::STORY_COLLECTION,
             LevelEnum::BANNER         => MediaCollection::BANNER_COLLECTION,
             LevelEnum::USER         => MediaCollection::USER_COLLECTION,
+            LevelEnum::CONTRY         => MediaCollection::CONTRY_FLAG_COLLECTION,
             LevelEnum::E_LEVEL         => MediaCollection::E_LEVEL_COLLECTION,
             LevelEnum::C_LEVEL         => MediaCollection::C_LEVEL_COLLECTION,
             LevelEnum::COURSE         => MediaCollection::COURSE_COLLECTION,
@@ -218,6 +220,7 @@ if (!function_exists('getModel')) {
             LevelEnum::STORY                => Story::class,
             LevelEnum::BANNER               => Banner::class,
             LevelEnum::USER               => User::class,
+            LevelEnum::CONTRY               => Contry::class,
             LevelEnum::E_LEVEL               => ELevel::class,
             LevelEnum::C_LEVEL               => CLevel::class,
             LevelEnum::COURSE               => Course::class,
@@ -270,6 +273,7 @@ if (!function_exists('getModelByPath')) {
             ModelPaths::Story          => Story::class,
             ModelPaths::Banner         => Banner::class,
             ModelPaths::User         => User::class,
+            ModelPaths::Contry         => Contry::class,
             ModelPaths::ELevel         => ELevel::class,
             ModelPaths::CLevel         => CLevel::class,
             ModelPaths::Course         => Course::class,

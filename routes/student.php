@@ -27,10 +27,13 @@ use App\Http\Controllers\Mobile\LessonQuestion\LessonQuestionController;
 // No Auth Needed
 Route::middleware([])->withoutMiddleware('is_student')->group(function () {
     Route::prefix('e-levels')->controller(HierarichyController::class)->group(function () {
-        Route::get('/', 'e_levels');
+        Route::get('/{contry_id?}', 'e_levels');
     });
     Route::prefix('c-levels')->controller(HierarichyController::class)->group(function () {
         Route::get('/{e_level_id}', 'c_levels');
+    });
+    Route::prefix('countries')->controller(HierarichyController::class)->group(function () {
+        Route::get('/', 'countries');
     });
     Route::prefix('teachers')->controller(HomeController::class)->group(function () {
         Route::get('/', 'getOnboarding');

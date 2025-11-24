@@ -42,6 +42,7 @@ class AuthRequest extends BaseApiRequest
             'email' => ['nullable', 'email',  Rule::unique('users' , 'email')],
             'birth_date' => ['nullable', 'date'],
             'is_male' => ['nullable', 'bool'],
+            'contry_id' => ['required', 'exists:contries,id'],
             'e_level_id' => ['required', 'exists:e_levels,id'],
             'c_level_id' => ['required', 'exists:c_levels,id'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],

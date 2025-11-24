@@ -39,6 +39,7 @@ class LessonResource extends JsonResource
             'sub_unit_id' => $this->sub_unit_id,
             'name' => $this->name,
             'bio' => $this->bio,
+            'contry_id' => $this->contry_id,
             'duration' => $this->duration,
             'priority' => $this->priority,
             'total_rate' => $this->total_rate,

@@ -29,6 +29,7 @@ class CourseResource extends JsonResource
             'c_level_id' => $this->c_level_id,
             'name' => $this->name,
             'bio' => $this->bio,
+            'contry_id' => $this->contry_id,
             'number_of_published_contents' => $this->childsPublishedCounts(),
             'price' => $this->price,
             'access_type' => $this->access_type,

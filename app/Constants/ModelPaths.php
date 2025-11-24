@@ -10,6 +10,7 @@ final class ModelPaths
     const User                    = 'App\Models\User';
     
     // E-Learning Models
+    const Contry                   = 'App\Models\Contry';
     const ELevel                   = 'App\Models\ELevel';
     const CLevel                   = 'App\Models\CLevel';
     const Course                   = 'App\Models\Course';

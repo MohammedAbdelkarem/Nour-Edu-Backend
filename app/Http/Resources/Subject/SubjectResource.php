@@ -34,6 +34,7 @@ class SubjectResource extends JsonResource
             'course_id' => $this->course_id,
             'name' => $this->name,
             'bio' => $this->bio,
+            'contry_id' => $this->contry_id,
             'number_of_published_contents' => $this->childsPublishedCounts(),
             'price' => $this->price,
             'access_type' => $this->access_type,
