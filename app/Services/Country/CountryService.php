@@ -26,7 +26,7 @@ class CountryService
 
     public function getList()
     {
-        return Contry::get();
+        return Contry::with('cities')->get();
     }
 
     public function show($id)
