@@ -33,9 +33,10 @@ class ELevelResource extends JsonResource
                 : [],
         ];
 
-        $data['duration'] = auth()->user()->isAdmin()
-            ? duration($this)
-            : duration($this, true);
+        $data['duration'] = optional(auth()->user())->isAdmin()
+        ? duration($this)
+        : duration($this, true);
+
 
         $routeName = $request->route()->getName();
         switch ($routeName) 
