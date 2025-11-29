@@ -18,6 +18,7 @@ use App\Http\Resources\SellPointResource;
 use App\Http\Resources\Unit\UnitResource;
 use App\Services\SellPoint\SellPointService;
 use App\Http\Resources\Course\CourseResource;
+use App\Http\Resources\ELevel\ELevelResource;
 use App\Http\Resources\Lesson\LessonResource;
 use App\Services\Hierarichy\HierarichyService;
 use App\Http\Resources\Subject\SubjectResource;
@@ -47,7 +48,7 @@ class HierarichyController extends Controller
 
     public function e_levels($contry_id = null)
     {
-        return success($this->eLevelService->getList($contry_id), ApiMessages::MSG_SUCCESS);
+        return success($this->eLevelService->getList($contry_id), ApiMessages::MSG_SUCCESS , ELevelResource::class);
     }
 
     public function c_levels($e_level_id)
