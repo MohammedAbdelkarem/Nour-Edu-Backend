@@ -8,6 +8,7 @@ use App\Models\Subject;
 use Illuminate\Http\Request;
 use App\Constants\ApiMessages;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Country\CountryResource;
 use App\Services\CLevel\CLevelService;
 use App\Services\ELevel\ELevelService;
 use App\Services\Lesson\LessonService;
@@ -41,7 +42,7 @@ class HierarichyController extends Controller
 
     public function countries()
     {
-        return success($this->countryService->getList(), ApiMessages::MSG_SUCCESS);
+        return success($this->countryService->getList(), ApiMessages::MSG_SUCCESS , CountryResource::class);
     }
 
     public function e_levels($contry_id = null)
