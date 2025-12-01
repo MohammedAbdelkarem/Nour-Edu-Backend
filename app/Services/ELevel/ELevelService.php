@@ -33,14 +33,7 @@ class ELevelService
     {
         $query = ELevel::published();
 
-        if($contry_id) 
-        {
-            $query->where('contry_id', $contry_id);
-        }
-        else
-        {
-            $query->sharedElevels();
-        }
+        $query->sharedElevels()->orWhere('contry_id', $contry_id);
 
         return $query->get();
     }
