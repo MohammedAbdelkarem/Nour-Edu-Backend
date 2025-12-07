@@ -31,10 +31,12 @@ class ELevelService
 
     public function getList($contry_id = null)
     {
-        $query = ELevel::published();
+        $query = ELevel::query();
 
         $query->sharedElevels()->orWhere('contry_id', $contry_id);
 
+        $query->published();
+        
         return $query->get();
     }
 
